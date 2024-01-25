@@ -13,9 +13,38 @@ class Cat(Animal):
 def animal_sound(animal):
     return animal.sound()
 
-# Example usage:
-dog_instance = Dog()
-cat_instance = Cat()
+class Game:
+    
+    def __init__(self):
+        self.cat_tease_counter = 5
+        self.dog_tease_counter = 5
+        self.game_over = False
+    
+    def action(self, action):
+        if action.lower() == "tease cat":
+            self.cat_tease_counter += 5
+            print("Cat teased.")
+        elif action.lower() == "tease dog":
+            self.cat_tease_counter += 5
+            print("Dog teased.")
+        else:
+            pass
+        
+        self.cat_tease_counter -= 1
+        self.dog_tease_counter -= 1
+        
+        if self.cat_tease_counter == 0:
+            print("Cat died.")
+        if self.dog_tease_counter == 0:
+            print("Dog died.")
+        
+        if self.cat_tease_counter < 1 and self.dog_tease_counter < 1:
+            self.game_over = True
+            print("Game Over.")
+            
+    def loop(self):
+        while self.game_over is False:
+            self.action(input("Type an action: "))
 
-print(animal_sound(dog_instance))  # Outputs: Woof!
-print(animal_sound(cat_instance))  # Outputs: Meow!
+game = Game()
+game.loop()
