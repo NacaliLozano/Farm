@@ -1,18 +1,23 @@
 class Animal:
     
     def __init__(self):
-        self.caress_counter = 5
-        self.food_counter = 5
+        self.caress_counter = 10
+        self.food_counter = 10
         self.is_dead = False
+        self.sound = None
+
+        
+    def makeSound(self):
+        return self.sound
          
     def increase_caress_counter(self):
-        self.caress_counter += 5
+        self.caress_counter += 10
         
     def decrease_caress_counter(self):
         self.caress_counter -= 1
         
     def increase_food_counter(self):
-        self.food_counter += 5
+        self.food_counter += 10
         
     def decrease_food_counter(self):
         self.food_counter -= 1
@@ -20,28 +25,33 @@ class Animal:
         
 class Dog(Animal):
 
-    def sound(self):
-        return "Woof!"
-    
+    def __init__(self):
+        Animal.__init__(self)
+        self.sound = "Woof!"
+        
 class Cat(Animal):
     
-    def sound(self):
-        return "Meaow!"
+    def __init__(self):
+        Animal.__init__(self)
+        self.sound = "Meaow!"
 
 class Cow(Animal):
     
-    def sound(self):
-        return "Moo!"
+    def __init__(self):
+        Animal.__init__(self)
+        self.sound = "Moo!"
     
 class Sheep(Animal):
     
-    def sound(self):
-        return "Baa!"
+    def __init__(self):
+        Animal.__init__(self)
+        self.sound = "Baa!"
     
 class Pig(Animal):
     
-    def sound(self):
-        return "Oink!"
+    def __init__(self):
+        Animal.__init__(self)
+        self.sound = "Oink!"
     
 class Game:
     
@@ -58,65 +68,65 @@ class Game:
         if action.lower() == "caress cat":
             if not self.cat_instance.is_dead:
                 self.cat_instance.increase_caress_counter()
-                print(self.cat_instance.sound())
+                print(self.cat_instance.makeSound())
             else:
                 print("Cat is dead!")
         elif action.lower() == "feed cat":
             if not self.cat_instance.is_dead:
                 self.cat_instance.increase_food_counter()
-                print(self.cat_instance.sound())
+                print(self.cat_instance.makeSound())
             else:
                 print("Cat is dead!")
                 
         elif action.lower() == "caress dog":
             if not self.dog_instance.is_dead:
                 self.dog_instance.increase_caress_counter()
-                print(self.dog_instance.sound())
+                print(self.dog_instance.makeSound())
             else:
                 print("Dog is dead!")
         elif action.lower() == "feed dog":
             if not self.dog_instance.is_dead:
                 self.dog_instance.increase_food_counter()
-                print(self.dog_instance.sound())
+                print(self.dog_instance.makeSound())
             else:
                 print("Dog is dead!")
 
         elif action.lower() == "caress cow":
             if not self.cow_instance.is_dead:
                 self.cow_instance.increase_caress_counter()
-                print(self.cow_instance.sound())
+                print(self.cow_instance.makeSound())
             else:
                 print("Cow is dead!")
         elif action.lower() == "feed cow":
             if not self.cow_instance.is_dead:
                 self.cow_instance.increase_food_counter()
-                print(self.cow_instance.sound())
+                print(self.cow_instance.makeSound())
             else:
                 print("Cow is dead!")
         
         elif action.lower() == "caress sheep":
             if not self.sheep_instance.is_dead:
                 self.sheep_instance.increase_caress_counter()
-                print(self.sheep_instance.sound())
+                print(self.sheep_instance.makeSound())
             else:
                 print("Sheep is dead!")
         elif action.lower() == "feed sheep":
             if not self.sheep_instance.is_dead:
                 self.sheep_instance.increase_food_counter()
-                print(self.sheep_instance.sound())
+                print(self.sheep_instance.makeSound())
             else:
                 print("Sheep is dead!")
         
         elif action.lower() == "caress pig":
             if not self.pig_instance.is_dead:
                 self.pig_instance.increase_caress_counter()
-                print(self.pig_instance.sound())
+                print(self.pig_instance.makeSound())
             else:
                 print("Pig is dead!")
         elif action.lower() == "feed pig":
             if not self.pig_instance.is_dead:
                 self.pig_instance.increase_food_counter()
-                print(self.pig_instance.sound())
+                print(self.pig_instance.makeSound())
             else:
                 print("Pig is dead!")
         
@@ -164,3 +174,4 @@ class Game:
 
 game_instance = Game()
 game_instance.loop()
+
